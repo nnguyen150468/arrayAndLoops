@@ -412,3 +412,23 @@ findArray4 = numbers.filter(notNumDivBy7)
 
 console.log(findArray4)
 
+//Create a function, fib(n) that gives you the nth entry, where n is any number. 
+//Every number is the sum of the two previous numbers.
+findArray5 = [];
+let result;
+
+function fib(n){
+  for(i=0; i<n; i++){
+  findArray5.push(null);
+  }
+  findArray5[0]=1;
+  findArray5[1]=1;
+  for(i=2; i<findArray5.length;i++){
+    findArray5[i]=findArray5[i-1]+findArray5[i-2];
+  }
+  result = findArray5[n-1];
+}
+
+fib(14)
+console.log(findArray5)
+console.log(result)
