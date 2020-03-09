@@ -96,23 +96,19 @@ const numbers = [1, 2, 3, 5, 8, 13, 21, 34, 55];
 
 
 //first character is A 
-filterArray1 = [];
+filterArray1 = []
 
-function firstCharA(name){
+filterArray1 = inventors.filter((name) => {
   return name.charAt(0)=="A";
-}
+})
 
-filterArray1 = inventors.filter(firstCharA);
 console.log(filterArray1)
-
 
 //name contains 'n'
 filterArray2 = []
-function nameContainsN(name){
-    return name.includes('n');
-  }
-  
-filterArray2 = inventors.filter(nameContainsN);
+filterArray2 = inventors.filter((name) => {
+    return name.includes('n')
+  })  
 console.log(filterArray2)
 
 //name contains two same letters in a row
@@ -131,20 +127,21 @@ for(let i=0; i< inventors.length; i++){
 console.log(filterArray3)
 
 //Print out an array of the numbers which are odd.
-function isOdd(num){
-    return num%2==1
-}
-  
 filterArray4 = [];
-filterArray4 = numbers.filter(isOdd);
+
+filterArray4 = numbers.filter((num) => {
+  return num%2==1
+})
+
+console.log(filterArray4)
 
 //Print out an array of the numbers that have two digits.
-function twoDigits(num){
-    return (num>=10 && num<=99)
-}
-  
 filterArray5 = []
-filterArray5 = numbers.filter(twoDigits)
+ 
+filterArray5 = numbers.filter((num) => {
+  return (num>=10 && num<=99)
+})
+console.log(filterArray5)
 
 //Print out an array of the numbers which are prime.
 
@@ -153,33 +150,27 @@ filterArray5 = numbers.filter(twoDigits)
 //MAPS. get first name
 mapArray = [];
 
-function firstName(name){
-  return name.split(' ')[0];
-}
-
-mapArray = inventors.map(firstName);
+mapArray = inventors.map((name) => {
+  return name.split(' ')[0]
+})
 
 console.log(mapArray)
 
 //Print out the length of every inventor's full name.
 mapArray2 = [];
 
-function nameLength(name){
-  return name.length-1;
-}
-
-mapArray2 = inventors.map(nameLength);
+mapArray2 = inventors.map((name) => {
+  return name.length-1
+})
 
 console.log(mapArray2)
 
 //Print out all the inventors' names in uppercase.
 mapArray3 = [];
 
-function upperCase(name){
+mapArray3 = inventors.map((name) => {
   return name.toUpperCase();
-}
-
-mapArray3 = inventors.map(upperCase);
+})
 /* or mapArray = inventors.map(name=>name.toUpperCase()); */
 console.log(mapArray3)
 
@@ -187,23 +178,18 @@ console.log(mapArray3)
 //Print out initials of all inventors(e.g. A.E., I.N., ...)
 mapArray4 = [];
 
-function getInitials(name){
-  let nameParts = name.split(' ')
-  return initials = nameParts[0].charAt(0)+nameParts[1].charAt(0)
-}
-
-mapArray4 = inventors.map(getInitials);
+mapArray4 = inventors.map((name) => {
+  return name.split(' ')[0].charAt(0)+name.split(' ')[name.split(' ').length-1].charAt(0)
+})
 
 console.log(mapArray4)
 
 //Print out an array of every number multiplied by 100.
 mapArray5 = [];
 
-function multiple100(num){
+mapArray5 = numbers.map((num) => {
   return num*100
-}
-
-mapArray5 = numbers.map(multiple100);
+})
 
 console.log(mapArray5)
 
@@ -211,72 +197,72 @@ console.log(mapArray5)
 const a = [2, 4, 8, 16 ]
 mapArray6 = [];
 
-function powerOfTwo(num){
+mapArray6 = a.map((num) => {
   return Math.log2(num)
-}
-
-mapArray6 = a.map(powerOfTwo)
+})
 
 console.log(mapArray6)
 
 //Sort all the inventors in alphabetical order, A-Z.
 mapArray7 = [];
 
-function sortA2Z(a,b){
-  if (a>b) return 1
+mapArray7 = inventors.sort((a,b) => {
   if (a<b) return -1
+  if (a>b) return 1
   else return 0
-}
-
-mapArray7 = inventors.sort(sortA2Z)
+})
 
 console.log(mapArray7)
-
 
 //Sort all the inventors in reverse alphabetical order, Z-A. Do not use the reverse method.
 mapArray8 = [];
 
-function sortZ2A(a,b){
+mapArray8 = inventors.sort((a,b) => {
   if (a>b) return -1
   if (a<b) return 1
-  return 0
-}
-
-mapArray8 = inventors.sort(sortZ2A)
+  else return 0
+})
 
 console.log(mapArray8)
 
 //Sort all the inventors by length of name, shortest name first.
 mapArray9 = [];
 
-function sortNameByLength(a, b){
-  return a.length - b.length;
-}
-
-mapArray9 = inventors.sort(sortNameByLength)
+mapArray9 = inventors.sort((a,b) => {
+  if(a.length > b.length) return 1
+  if(a.length < b.length) return -1
+  else return 0
+})
 
 console.log(mapArray9)
 
 //Sort all the inventors by length of name, longest name first. Do not use the reverse method.
+// mapArray10 = [];
+
+// function sortNameByLength(a, b){
+//   return b.length - a.length;
+// }
+
+// mapArray10 = inventors.sort(sortNameByLength)
+
+// console.log(mapArray10)
+
 mapArray10 = [];
 
-function sortNameByLength(a, b){
-  return b.length - a.length;
-}
-
-mapArray10 = inventors.sort(sortNameByLength)
+mapArray10 = inventors.sort((a,b) => {
+  if(a.length > b.length) return -1
+  if(a.length < b.length) return 1
+  else return 0
+})
 
 console.log(mapArray10)
-
 
 //Find the sum of all the numbers.
 reduceArray = []
 
-function sumOfAllNum(total, value){
-  return total+value;
-}
-
-reduceArray = numbers.reduce(sumOfAllNum)
+reduceArray = numbers.reduce((total, value) => {
+  return total+=value
+})
 
 console.log(reduceArray)
 
