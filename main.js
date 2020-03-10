@@ -124,6 +124,19 @@ for(let i=0; i< inventors.length; i++){
   }
 }
 
+// let extraArray = inventors.filter((name) => {
+//     let splitName = name.split('');
+//     let isDuplicate = false;
+//     splitName.map((_,i) => {
+//         if(splitName[i]==splitName[i++]){
+//             isDuplicate = true;
+//         }
+//         return isDuplicate
+//     })
+//     return isDuplicate
+// })
+// console.log(extraArray)
+
 console.log(filterArray3)
 
 //Print out an array of the numbers which are odd.
@@ -179,7 +192,12 @@ console.log(mapArray3)
 mapArray4 = [];
 
 mapArray4 = inventors.map((name) => {
-  return name.split(' ')[0].charAt(0)+name.split(' ')[name.split(' ').length-1].charAt(0)
+    let nameSplit = name.split(' ');
+    let initials = '';
+    for(let i=0; i<nameSplit.length; i++){
+        initials+=nameSplit[i].charAt(0);
+    }
+    return initials;
 })
 
 console.log(mapArray4)
@@ -250,9 +268,11 @@ console.log(mapArray9)
 mapArray10 = [];
 
 mapArray10 = inventors.sort((a,b) => {
-  if(a.length > b.length) return -1
-  if(a.length < b.length) return 1
-  else return 0
+    return b.length - a.length
+
+//   if(a.length > b.length) return -1
+//   if(a.length < b.length) return 1
+//   else return 0
 })
 
 console.log(mapArray10)
